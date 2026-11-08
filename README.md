@@ -20,7 +20,8 @@ The app plays a public HLS stream with dialogue ("Tears of Steel"). Tap **1.5x**
 ## Compare with `.timeDomain`
 
 `fix/expo-video+58.0.13.patch` swaps `.spectral` for `.timeDomain` in the three places
-expo-video sets the algorithm:
+expo-video sets the algorithm. `package.json` sets `expo.autolinking.ios.buildFromSource: ["ExpoVideo"]`:
+without it, iOS builds link the precompiled `ExpoVideo.xcframework` and ignore the patched source.
 
 ```bash
 npx --yes patch-package --patch-dir fix
